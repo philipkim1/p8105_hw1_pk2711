@@ -2,7 +2,7 @@
 title: "Homework 1"
 author: "Philip Kim"
 date: "9/22/2021"
-output: github_document
+output: html_document
 ---
 
 ```{r}
@@ -19,7 +19,7 @@ Create a data frame comprised of:
   3. a character vector of length 10
   4. a factor vector of length 10, with 3 different factor “levels”
 
-```{r}
+```{r data frame}
 set.seed(1)
 
 problem1_df = 
@@ -33,7 +33,7 @@ problem1_df =
 
 Try to take the mean of each variable in your dataframe. What works and what doesn’t?
 
-```{r}
+```{r mean}
   mean(problem1_df$sample)
   mean(problem1_df$lrgr_than_0)
   mean(problem1_df$vec_char)
@@ -43,3 +43,12 @@ Try to take the mean of each variable in your dataframe. What works and what doe
 After calculating the means of all four variables in the data frame, the mean was calculated for the random sample and the logical vector. However, it did not work for the character vector or the factor vector. It displayed that the "argument is not numeric or logical: returning NA".
 
 
+In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens, and why? Does this help explain what happens when you try to take the mean?
+
+```{r as.numeric, results = "hide"}
+  as.numeric(problem1_df$lrgr_than_0)
+  as.numeric(problem1_df$vec_char)
+  as.numeric(problem1_df$vec_factor)
+```
+
+The `as.numeric` function changed the outputs of the logical vector into 0's which corresponded to False values and 1's which corresponded to True values. Accordingly, the character vector was changed into "NA"'s and the factor vector was changed into numbers 1, 2, and 3 that corresponded to the different levels. These numbers were assigned alphabetically where the level "high" corresponded to 1, "low" corresponded to 2, and "medium" corresponded to 3. 
