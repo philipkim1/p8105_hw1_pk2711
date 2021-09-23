@@ -2,7 +2,7 @@
 title: "Homework 1"
 author: "Philip Kim"
 date: "9/22/2021"
-output: html_document
+output: github_document
 ---
 
 ```{r}
@@ -30,4 +30,16 @@ problem1_df =
   vec_factor = factor(c("low", "medium", "high", "medium", "high", "low", "low", "medium", "high", "high"))
 )
 ```
+
+Try to take the mean of each variable in your dataframe. What works and what doesn’t?
+
+```{r}
+  mean(problem1_df$sample)
+  mean(problem1_df$lrgr_than_0)
+  mean(problem1_df$vec_char)
+  mean(problem1_df$vec_factor)
+```
+
+After calculating the means of all four variables in the data frame, the mean was calculated for the random sample and the logical vector. However, it did not work for the character vector or the factor vector. It displayed that the "argument is not numeric or logical: returning NA".
+
 
