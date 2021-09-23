@@ -5,5 +5,29 @@ date: "9/22/2021"
 output: html_document
 ---
 
+```{r}
+library(tidyverse)
+```
 
+
+# Problem 1
+
+Create a data frame comprised of:
+
+  1. a random sample of size 10 from a standard Normal distribution
+  2. a logical vector indicating whether elements of the sample are greater than 0
+  3. a character vector of length 10
+  4. a factor vector of length 10, with 3 different factor “levels”
+
+```{r}
+set.seed(1)
+
+problem1_df = 
+  tibble(
+  sample = rnorm(10),
+  lrgr_than_0 = sample > 0,
+  vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  vec_factor = factor(c("low", "medium", "high", "medium", "high", "low", "low", "medium", "high", "high"))
+)
+```
 
