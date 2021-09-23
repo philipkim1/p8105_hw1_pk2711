@@ -1,0 +1,9 @@
+---
+title: "Homework 1"
+author: "Philip Kim"
+date: "9/22/2021"
+output: html_document
+---
+
+
+
