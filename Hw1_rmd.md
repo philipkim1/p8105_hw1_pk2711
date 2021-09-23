@@ -44,32 +44,32 @@ Try to take the mean of each variable in your dataframe. What works and
 what doesn’t?
 
 ``` r
-  mean(problem1_df$sample)
+  mean(pull(problem1_df, sample))
 ```
 
     ## [1] 0.1322028
 
 ``` r
-  mean(problem1_df$lrgr_than_0)
+  mean(pull(problem1_df, lrgr_than_0))
 ```
 
     ## [1] 0.6
 
 ``` r
-  mean(problem1_df$vec_char)
+  mean(pull(problem1_df, vec_char))
 ```
 
-    ## Warning in mean.default(problem1_df$vec_char): argument is not numeric or
+    ## Warning in mean.default(pull(problem1_df, vec_char)): argument is not numeric or
     ## logical: returning NA
 
     ## [1] NA
 
 ``` r
-  mean(problem1_df$vec_factor)
+  mean(pull(problem1_df, vec_factor))
 ```
 
-    ## Warning in mean.default(problem1_df$vec_factor): argument is not numeric or
-    ## logical: returning NA
+    ## Warning in mean.default(pull(problem1_df, vec_factor)): argument is not numeric
+    ## or logical: returning NA
 
     ## [1] NA
 
@@ -86,20 +86,21 @@ the output). What happens, and why? Does this help explain what happens
 when you try to take the mean?
 
 ``` r
-  as.numeric(problem1_df$lrgr_than_0)
-  as.numeric(problem1_df$vec_char)
+  as.numeric(pull(problem1_df, lrgr_than_0))
+  as.numeric(pull(problem1_df, vec_char))
 ```
 
     ## Warning: NAs introduced by coercion
 
 ``` r
-  as.numeric(problem1_df$vec_factor)
+  as.numeric(pull(problem1_df, vec_factor))
 ```
 
 The `as.numeric` function changed the outputs of the logical vector into
 0’s which corresponded to False values and 1’s which corresponded to
 True values. Accordingly, the character vector was changed into “NA”’s
-and the factor vector was changed into numbers 1, 2, and 3 that
+and the factor vector was changed into numbers 1, 2, and, 3 that
 corresponded to the different levels. These numbers were assigned
 alphabetically where the level “high” corresponded to 1, “low”
-corresponded to 2, and “medium” corresponded to 3.
+corresponded to 2, and “medium” corresponded to 3. Yes, it does help
+because
