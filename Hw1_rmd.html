@@ -171,7 +171,8 @@ pre code {
 </div>
 
 
-<pre class="r"><code>library(tidyverse)</code></pre>
+<pre class="r"><code>library(tidyverse)
+library(knitr)</code></pre>
 <div id="problem-1" class="section level1">
 <h1>Problem 1</h1>
 <p>Create a data frame comprised of:</p>
@@ -189,7 +190,82 @@ problem1_df =
   lrgr_than_0 = sample &gt; 0,
   vec_char = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;),
   vec_factor = factor(c(&quot;low&quot;, &quot;medium&quot;, &quot;high&quot;, &quot;medium&quot;, &quot;high&quot;, &quot;low&quot;, &quot;low&quot;, &quot;medium&quot;, &quot;high&quot;, &quot;high&quot;))
-)</code></pre>
+)
+
+kable(problem1_df, caption = &quot;Problem 1 Dataframe&quot;)</code></pre>
+<table>
+<caption>Problem 1 Dataframe</caption>
+<thead>
+<tr class="header">
+<th align="right">sample</th>
+<th align="left">lrgr_than_0</th>
+<th align="left">vec_char</th>
+<th align="left">vec_factor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">-0.6264538</td>
+<td align="left">FALSE</td>
+<td align="left">a</td>
+<td align="left">low</td>
+</tr>
+<tr class="even">
+<td align="right">0.1836433</td>
+<td align="left">TRUE</td>
+<td align="left">b</td>
+<td align="left">medium</td>
+</tr>
+<tr class="odd">
+<td align="right">-0.8356286</td>
+<td align="left">FALSE</td>
+<td align="left">c</td>
+<td align="left">high</td>
+</tr>
+<tr class="even">
+<td align="right">1.5952808</td>
+<td align="left">TRUE</td>
+<td align="left">d</td>
+<td align="left">medium</td>
+</tr>
+<tr class="odd">
+<td align="right">0.3295078</td>
+<td align="left">TRUE</td>
+<td align="left">e</td>
+<td align="left">high</td>
+</tr>
+<tr class="even">
+<td align="right">-0.8204684</td>
+<td align="left">FALSE</td>
+<td align="left">f</td>
+<td align="left">low</td>
+</tr>
+<tr class="odd">
+<td align="right">0.4874291</td>
+<td align="left">TRUE</td>
+<td align="left">g</td>
+<td align="left">low</td>
+</tr>
+<tr class="even">
+<td align="right">0.7383247</td>
+<td align="left">TRUE</td>
+<td align="left">h</td>
+<td align="left">medium</td>
+</tr>
+<tr class="odd">
+<td align="right">0.5757814</td>
+<td align="left">TRUE</td>
+<td align="left">i</td>
+<td align="left">high</td>
+</tr>
+<tr class="even">
+<td align="right">-0.3053884</td>
+<td align="left">FALSE</td>
+<td align="left">j</td>
+<td align="left">high</td>
+</tr>
+</tbody>
+</table>
 <p>Try to take the mean of each variable in your dataframe. What works and what doesn’t?</p>
 <pre class="r"><code>  mean(pull(problem1_df, sample))</code></pre>
 <pre><code>## [1] 0.1322028</code></pre>

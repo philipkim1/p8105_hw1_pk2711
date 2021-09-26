@@ -7,6 +7,7 @@ output: html_document
 
 ```{r, message=FALSE}
 library(tidyverse)
+library(knitr)
 ```
 
 
@@ -29,6 +30,8 @@ problem1_df =
   vec_char = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
   vec_factor = factor(c("low", "medium", "high", "medium", "high", "low", "low", "medium", "high", "high"))
 )
+
+kable(problem1_df, caption = "Problem 1 Dataframe")
 ```
 
 Try to take the mean of each variable in your dataframe. What works and what doesn’t?
