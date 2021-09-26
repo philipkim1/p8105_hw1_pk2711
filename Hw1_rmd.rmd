@@ -5,7 +5,7 @@ date: "9/22/2021"
 output: html_document
 ---
 
-```{r}
+```{r, message=FALSE}
 library(tidyverse)
 ```
 
@@ -68,11 +68,18 @@ Write a short description of the penguins dataset (not the penguins_raw dataset)
   2. the size of the dataset (using nrow and ncol)
   3. the mean flipper length
 
-In this dataset, it includes important information of the penguins which include the `species` of the penguin, the `island` they are from...There are `r nrow(penguins)` penguins represented in this dataset with `r ncol(penguins)` different variables describing each penguin listed. The mean flipper length...
+In this dataset, it includes important information of the penguins which include the `species` of the penguin, the `island` they are from...There are `r nrow(penguins)` penguins represented in this dataset with `r ncol(penguins)` different variables describing each penguin listed. The mean flipper length is 200.92mm.
 
 ```{r}
-  ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+  mean(as.double(pull(penguins, flipper_length_mm)), na.rm = TRUE)
+```
 
-  ggsave("penguins_scatterplot.pdf")
+
+Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable.
+
+```{r, message=FALSE}
+  ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + labs(x = "Bill Length (mm)", y = "Flipper Length (mm)") + ggtitle("Bill Length vs. Flipper Length \nacross Penguin Species") + labs(colour = "Penguin Species") + theme(plot.title = element_text(hjust = 0.5)) + geom_point()
+
+  ggsave("penguins_scatterplot.pdf", height = 4, width = 6)
 ```
 
