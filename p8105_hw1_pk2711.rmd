@@ -48,13 +48,13 @@ After calculating the means of all four variables in the data frame, the mean wa
 
 In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens, and why? Does this help explain what happens when you try to take the mean?
 
-```{r as.numeric, results = "hide"}
+```{r as.numeric, results = "hide", warning = FALSE}
   as.numeric(pull(problem1_df, lrgr_than_0))
   as.numeric(pull(problem1_df, vec_char))
   as.numeric(pull(problem1_df, vec_factor))
 ```
 
-The `as.numeric` function changed the outputs of the logical vector into 0's which corresponded to False values and 1's which corresponded to True values. Accordingly, the character vector was changed into "NA"'s and the factor vector was changed into numbers 1, 2, and, 3 that corresponded to the different levels. These numbers were assigned alphabetically where the level "high" corresponded to 1, "low" corresponded to 2, and "medium" corresponded to 3. Yes, it does help because...
+The `as.numeric` function changed the outputs of the logical vector into 0's which corresponded to False values and 1's which corresponded to True values. Accordingly, the character vector was changed into "NA"'s and the factor vector was changed into numbers 1, 2, and, 3 that corresponded to the different levels. These numbers were assigned alphabetically where the level "high" corresponded to 1, "low" corresponded to 2, and "medium" corresponded to 3. Yes, it does help explain because you can not get the mean of "NA" outputs and the factor levels are treated as categorical data which you can not calculate the mean for.
 
 
 
@@ -80,7 +80,7 @@ In this dataset, it includes important information of the penguins which include
 
 Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable.
 
-```{r, message=FALSE}
+```{r, message = FALSE, warning = FALSE}
   ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + labs(x = "Bill Length (mm)", y = "Flipper Length (mm)") + ggtitle("Bill Length vs. Flipper Length \nacross Penguin Species") + labs(colour = "Penguin Species") + theme(plot.title = element_text(hjust = 0.5)) + geom_point()
 
   ggsave("penguins_scatterplot.pdf", height = 4, width = 6)
