@@ -5,7 +5,7 @@ date: "9/22/2021"
 output: 
   github_document:
     toc: true
-    toc_depth: 2
+    toc_depth: 6
 ---
 
 ```{r, message=FALSE}
@@ -15,6 +15,8 @@ library(knitr)
 
 
 # Problem 1
+
+## Part 1 - Data Frame Creation
 
 Create a data frame comprised of:
 
@@ -37,6 +39,8 @@ problem1_df =
 kable(problem1_df, caption = "Problem 1 Dataframe")
 ```
 
+## Part 2 - Variable Means
+
 Try to take the mean of each variable in your dataframe. What works and what doesn’t?
 
 ```{r mean}
@@ -48,6 +52,7 @@ Try to take the mean of each variable in your dataframe. What works and what doe
 
 After calculating the means of all four variables in the data frame, the mean was calculated for the random sample and the logical vector. However, it did not work for the character vector or the factor vector. It displayed that the "argument is not numeric or logical: returning NA".
 
+## Part 3 - Coercion
 
 In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens, and why? Does this help explain what happens when you try to take the mean?
 
@@ -60,13 +65,13 @@ In some cases, you can explicitly convert variables from one type to another. Wr
 The `as.numeric` function changed the outputs of the logical vector into 0's which corresponded to False values and 1's which corresponded to True values. Accordingly, the character vector was changed into "NA"'s and the factor vector was changed into numbers 1, 2, and, 3 that corresponded to the different levels. These numbers were assigned alphabetically where the level "high" corresponded to 1, "low" corresponded to 2, and "medium" corresponded to 3. Yes, it does help explain because you can not get the mean of "NA" outputs and the factor levels are treated as categorical data which you can not calculate the mean for.
 
 
-
-
 # Problem 2
 
 ```{r penguins_dataset}
   data("penguins", package = "palmerpenguins")
 ```
+
+## Part 1 - Penguin Dataset Description
 
 Write a short description of the penguins dataset (not the penguins_raw dataset) using inline R code, including:
 
@@ -74,12 +79,13 @@ Write a short description of the penguins dataset (not the penguins_raw dataset)
   2. the size of the dataset (using nrow and ncol)
   3. the mean flipper length
 
-In this dataset, it includes important information of the penguins which include the `species` of the penguin (3 in total), the `island` they are from, the bill length and depth in millimeters, body mass in grams, and the sex of the penguins. There are `r nrow(penguins)` penguins represented in this dataset with `r ncol(penguins)` different variables describing each penguin listed. The mean flipper length is 200.92mm.
+In this dataset, it includes important information of the penguins which include the `species` of the penguin (3 in total), the `island` they are from, the bill dimensions such as `bill_length_mm` and `bill_depth_mm`, body mass in grams, and the `sex` of the penguins. There are `r nrow(penguins)` penguins represented in this dataset with `r ncol(penguins)` different variables describing each penguin listed. The mean flipper length is 200.92mm.
 
 ```{r flipper length mean}
   mean(as.double(pull(penguins, flipper_length_mm)), na.rm = TRUE)
 ```
 
+## Part 2 - Scatterplot
 
 Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable.
 
