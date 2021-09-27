@@ -2,7 +2,11 @@
 title: "Homework 1"
 author: "Philip Kim"
 date: "9/22/2021"
-output: github_document
+output: 
+  md_document:
+    variant: markdown_github
+    toc: TRUE
+    toc_float: TRUE
 ---
 
 ```{r, message=FALSE}
@@ -48,7 +52,7 @@ After calculating the means of all four variables in the data frame, the mean wa
 
 In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens, and why? Does this help explain what happens when you try to take the mean?
 
-```{r as.numeric, results = "hide", warning = FALSE}
+```{r as.numeric, results = "hide"}
   as.numeric(pull(problem1_df, lrgr_than_0))
   as.numeric(pull(problem1_df, vec_char))
   as.numeric(pull(problem1_df, vec_factor))
@@ -61,7 +65,7 @@ The `as.numeric` function changed the outputs of the logical vector into 0's whi
 
 # Problem 2
 
-```{r}
+```{r penguins_dataset}
   data("penguins", package = "palmerpenguins")
 ```
 
@@ -71,9 +75,9 @@ Write a short description of the penguins dataset (not the penguins_raw dataset)
   2. the size of the dataset (using nrow and ncol)
   3. the mean flipper length
 
-In this dataset, it includes important information of the penguins which include the `species` of the penguin, the `island` they are from...There are `r nrow(penguins)` penguins represented in this dataset with `r ncol(penguins)` different variables describing each penguin listed. The mean flipper length is 200.92mm.
+In this dataset, it includes important information of the penguins which include the `species` of the penguin (3 in total), the `island` they are from, the bill length and depth in millimeters, body mass in grams, and the sex of the penguins. There are `r nrow(penguins)` penguins represented in this dataset with `r ncol(penguins)` different variables describing each penguin listed. The mean flipper length is 200.92mm.
 
-```{r}
+```{r flipper length mean}
   mean(as.double(pull(penguins, flipper_length_mm)), na.rm = TRUE)
 ```
 
