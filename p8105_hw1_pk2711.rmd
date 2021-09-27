@@ -3,10 +3,9 @@ title: "Homework 1"
 author: "Philip Kim"
 date: "9/22/2021"
 output: 
-  md_document:
-    variant: markdown_github
-    toc: TRUE
-    toc_float: TRUE
+  github_document:
+    toc: true
+    toc_depth: 2
 ---
 
 ```{r, message=FALSE}
@@ -52,7 +51,7 @@ After calculating the means of all four variables in the data frame, the mean wa
 
 In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens, and why? Does this help explain what happens when you try to take the mean?
 
-```{r as.numeric, results = "hide"}
+```{r as.numeric, results = "hide", warning =  FALSE}
   as.numeric(pull(problem1_df, lrgr_than_0))
   as.numeric(pull(problem1_df, vec_char))
   as.numeric(pull(problem1_df, vec_factor))
