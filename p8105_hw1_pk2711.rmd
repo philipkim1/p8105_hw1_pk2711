@@ -79,7 +79,7 @@ Write a short description of the penguins dataset (not the penguins_raw dataset)
   2. the size of the dataset (using nrow and ncol)
   3. the mean flipper length
 
-In this dataset, it includes important information of the penguins which include the `species` of the penguin (3 in total), the `island` they are from, the bill dimensions such as `bill_length_mm` and `bill_depth_mm`, body mass in grams, and the `sex` of the penguins. There are `r nrow(penguins)` penguins represented in this dataset with `r ncol(penguins)` different variables describing each penguin listed. The mean flipper length is 200.92mm.
+In this dataset, it includes important information of the penguins which include the `species` of the penguin (3 in total), the `island` they are from, the bill dimensions such as `bill_length_mm` and `bill_depth_mm`, body mass in grams, and the `sex` of the penguins. There are `r nrow(penguins)` penguins represented in this dataset with `r ncol(penguins)` different variables describing each penguin listed. Accordingly, the mean flipper length of all the penguins listed is 200.92mm.
 
 ```{r flipper length mean}
   mean(as.double(pull(penguins, flipper_length_mm)), na.rm = TRUE)
@@ -90,7 +90,7 @@ In this dataset, it includes important information of the penguins which include
 Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable.
 
 ```{r, message = FALSE, warning = FALSE}
-  ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + labs(x = "Bill Length (mm)", y = "Flipper Length (mm)") + ggtitle("Bill Length vs. Flipper Length \nacross Penguin Species") + labs(colour = "Penguin Species") + theme(plot.title = element_text(hjust = 0.5)) + geom_point()
+  ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + labs(x = "Bill Length (mm)", y = "Flipper Length (mm)") + ggtitle("Flipper Length vs. Bill Length \nacross Penguin Species") + labs(colour = "Penguin Species") + theme(plot.title = element_text(hjust = 0.5)) + geom_point()
 
   ggsave("penguins_scatterplot.pdf", height = 4, width = 6)
 ```
